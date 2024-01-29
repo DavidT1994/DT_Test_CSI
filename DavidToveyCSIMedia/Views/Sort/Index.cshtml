@@ -1,0 +1,53 @@
+﻿@model IEnumerable<DavidToveyCSIMedia.Models.Sort>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+    <a style="float:right" asp-action="Export">Export Json</a>
+</p>
+
+@if (Model.Any())
+{
+    <table class="table">
+        <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Sequence)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Direction)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Time) ms
+            </th>
+
+        </tr>
+        </thead>
+        <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Sequence)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Direction)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Time)
+                </td>
+
+            </tr>
+        }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No previous sorts</p>
+}
